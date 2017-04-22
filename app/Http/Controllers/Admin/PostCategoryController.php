@@ -105,11 +105,6 @@ class PostCategoryController extends Controller
             return redirect(route('admin.post.categories.index'));
         }
 
-        $this->validate($request, [
-            'name' => 'required|max:45',
-            'slug' => 'required|max:80|unique:post_categories,slug,' . $id
-        ]);
-
         $this->postCategory->update($request->all(), $id);
 
         Flash::success(trans('l5starter::messages.update.success'));

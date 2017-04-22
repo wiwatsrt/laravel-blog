@@ -25,7 +25,7 @@ class CreatePostCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|max:45',
-            'slug' => 'required|unique:post_categories|max:80'
+            'slug' => 'required|max:80|unique:post_categories'
         ];
     }
 }
