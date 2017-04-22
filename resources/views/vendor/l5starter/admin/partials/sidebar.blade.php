@@ -21,6 +21,21 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('l5starter::general.dashboard') }}</span>
                 </a>
             </li>
+            <li class="treeview{{ (Request::is('admin/post*') ? ' active' : '') }}">
+                <a href="#">
+                    <i class="fa fa-file"></i> <span>{{ trans('messages.post') }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ (Request::is('admin/post/categories*') ? 'active' : '') }}">
+                        <a href="{{ route('admin.post.categories.index') }}">
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.categories') }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">
                 <a href="{{ route('admin.users.index') }}">
                     <i class="fa fa-user"></i> <span>{{ trans('l5starter::general.users') }}</span>

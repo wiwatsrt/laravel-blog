@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+    Route::resource('post/categories', 'PostCategoryController', [
+        'except' => ['show'],
+        'names' => [
+            'index' => 'admin.post.categories.index',
+            'create' => 'admin.post.categories.create',
+            'store' => 'admin.post.categories.store',
+            'edit' => 'admin.post.categories.edit',
+            'update' => 'admin.post.categories.update',
+            'destroy' => 'admin.post.categories.destroy',
+        ],
+    ]);
+});
