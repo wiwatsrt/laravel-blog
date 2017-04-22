@@ -31,6 +31,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'role
             'destroy' => 'admin.post.categories.destroy',
         ],
     ]);
+    Route::resource('post/tags', 'PostTagController', [
+        'except' => ['show'],
+        'names' => [
+            'index' => 'admin.post.tags.index',
+            'create' => 'admin.post.tags.create',
+            'store' => 'admin.post.tags.store',
+            'edit' => 'admin.post.tags.edit',
+            'update' => 'admin.post.tags.update',
+            'destroy' => 'admin.post.tags.destroy',
+        ],
+    ]);
     Route::resource('post/statuses', 'PostStatusController', [
         'except' => ['show'],
         'names' => [
