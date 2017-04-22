@@ -34,6 +34,11 @@
                             <i class="fa fa-circle-o"></i> <span>{{ trans('messages.categories') }}</span>
                         </a>
                     </li>
+                    <li class="{{ (Request::is('admin/post/statuses*') ? 'active' : '') }}">
+                        <a href="{{ route('admin.post.statuses.index') }}">
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.statuses') }}</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">

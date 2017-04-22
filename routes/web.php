@@ -31,4 +31,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'role
             'destroy' => 'admin.post.categories.destroy',
         ],
     ]);
+    Route::resource('post/statuses', 'PostStatusController', [
+        'except' => ['show'],
+        'names' => [
+            'index' => 'admin.post.statuses.index',
+            'create' => 'admin.post.statuses.create',
+            'store' => 'admin.post.statuses.store',
+            'edit' => 'admin.post.statuses.edit',
+            'update' => 'admin.post.statuses.update',
+            'destroy' => 'admin.post.statuses.destroy',
+        ],
+    ]);
 });
