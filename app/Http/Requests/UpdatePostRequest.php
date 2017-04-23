@@ -26,7 +26,10 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => 'required|max:100',
             'slug' => 'required|max:120|unique:posts,slug,' . $this->route('post'),
-            'content' => 'required'
+            'content' => 'required',
+            'category_id' => 'required',
+            'publish_hour' => 'numeric|digits:2|between:00,23',
+            'publish_minute' => 'numeric|digits:2|between:00,59'
         ];
     }
 }

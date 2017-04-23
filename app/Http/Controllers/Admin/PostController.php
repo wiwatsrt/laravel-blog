@@ -7,7 +7,6 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Repositories\PostCategoryRepository;
 use App\Repositories\PostStatusRepository;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\PostRepository;
 use L5Starter\Core\Support\DateFormatter;
@@ -71,14 +70,9 @@ class PostController extends Controller
     public function store(CreatePostRequest $request)
     {
         $input = $request->all();
-
-        if (!isset($input['publish_date_at']) || !isset($input['publish_hour']) || !isset($input['publish_minute'])) {
-            $input['publish_date'] = Carbon::now();
-        } else {
-            $dateTime = DateFormatter::unformat($input['publish_date_at']).' '.$input['publish_hour'].':'.$input['publish_minute'];
-            $input['publish_date'] = Carbon::createFromFormat('Y-m-d H:i', $dateTime)->toDateTimeString();
-        }
-
+        $dateTime = (string) DateFormatter::unformat($input['publish_date_at']) .' '.$input['publish_hour'].':'.$input['publish_minute'];
+        $input['publish_date'] = Carbon::createFromFormat('Y-m-d H:i', $dateTime)->toDateTimeString();
+        // Save
         $request->user()->posts()->create($input);
 
         Flash::success(trans('l5starter::messages.create.success'));
@@ -130,14 +124,9 @@ class PostController extends Controller
         }
 
         $input = $request->all();
-
-        if (!isset($input['publish_date_at']) || !isset($input['publish_hour']) || !isset($input['publish_minute'])) {
-            $input['publish_date'] = Carbon::now();
-        } else {
-            $dateTime = DateFormatter::unformat($input['publish_date_at']).' '.$input['publish_hour'].':'.$input['publish_minute'];
-            $input['publish_date'] = Carbon::createFromFormat('Y-m-d H:i', $dateTime)->toDateTimeString();
-        }
-
+        $dateTime = (string) DateFormatter::unformat($input['publish_date_at']).' '.$input['publish_hour'].':'.$input['publish_minute'];
+        $input['publish_date'] = Carbon::createFromFormat('Y-m-d H:i', $dateTime)->toDateTimeString();
+        // Save
         $this->post->update($input, $id);
 
         Flash::success(trans('l5starter::messages.update.success'));

@@ -12,13 +12,13 @@
 <div class="form-group col-sm-12">
     <div class="row">
         <div class="col-xs-6">
-            {!! Form::text('publish_date_at', null, ['class' => 'form-control', 'id' => 'publish_date_at', 'autocomplete' => 'off']) !!}
+            {!! Form::text('publish_date_at', !isset($post) ? \L5Starter\Core\Support\DateFormatter::format() : null, ['class' => 'form-control', 'id' => 'publish_date_at', 'autocomplete' => 'off']) !!}
         </div>
         <div class="col-xs-3">
-            {!! Form::number('publish_hour', null, ['class' => 'form-control']) !!}
+            {!! Form::number('publish_hour', !isset($post) ? Date('H') : null, ['class' => 'form-control', 'id' => 'publish_hour']) !!}
         </div>
         <div class="col-xs-3">
-            {!! Form::number('publish_minute', null, ['class' => 'form-control']) !!}
+            {!! Form::number('publish_minute', !isset($post) ? Date('i') : null, ['class' => 'form-control', 'id' => 'publish_minute']) !!}
         </div>
     </div>
 </div>
