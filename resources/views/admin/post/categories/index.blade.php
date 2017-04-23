@@ -32,9 +32,11 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <thead>
-                        <th>{{ trans('messages.name') }}</th>
-                        <th>{{ trans('messages.slug') }}</th>
-                        <th colspan="3">{{ trans('l5starter::general.action') }}</th>
+                            <tr>
+                                <th>{{ trans('messages.name') }}</th>
+                                <th>{{ trans('messages.slug') }}</th>
+                                <th colspan="3">{{ trans('l5starter::general.action') }}</th>
+                            </tr>
                         </thead>
                         <tbody>
                         @foreach($categories as $category)
