@@ -9,6 +9,7 @@ return [
     'author' => 'Author',
     'category' => 'Category',
     'content' => 'Content',
+    'count' => 'Count',
     'date' => 'Date',
     'excerpt' => 'Excerpt',
     'name' => 'Name',
