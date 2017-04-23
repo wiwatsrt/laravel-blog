@@ -28,8 +28,9 @@
                 <div class="box-body">
                     <div class="row">
                         @include('admin.posts.options')
-                        <div class="form-group col-sm-12">
-                            {!! Form::submit(trans('messages.add_new_post'), ['class' => 'btn btn-primary btn-flat pull-right']) !!}
+                        <div class="form-group col-sm-12 text-right">
+                            <a href="{!! route('admin.posts.index') !!}" class="btn btn-default btn-flat">{{ trans('l5starter::button.back') }}</a>
+                            {!! Form::submit(trans('messages.add_new_post'), ['class' => 'btn btn-primary btn-flat']) !!}
                         </div>
                     </div>
                 </div>

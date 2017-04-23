@@ -1,9 +1,13 @@
 @extends('l5starter::admin.layouts.master')
 
 @section('content-header')
-    <h1>
+    <h1 class="pull-left">
         Posts
     </h1>
+    <div class="pull-right">
+        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> {{ trans('messages.add_new_post') }}</a>
+    </div>
+    <div class="clearfix"></div>
 @stop
 
 @section('content')
