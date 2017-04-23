@@ -19,8 +19,8 @@
             <div class="row">
                 @include('admin.post.tags.fields')
                 <div class="form-group col-sm-12">
-                    {!! Form::submit(trans('l5starter::button.save'), ['class' => 'btn btn-primary btn-flat']) !!}
                     <a href="{!! route('admin.post.tags.index') !!}" class="btn btn-default btn-flat">{{ trans('l5starter::button.cancel') }}</a>
+                    {!! Form::submit(trans('messages.add_new_tag'), ['class' => 'btn btn-primary btn-flat']) !!}
                 </div>
             </div>
             {!! Form::close() !!}

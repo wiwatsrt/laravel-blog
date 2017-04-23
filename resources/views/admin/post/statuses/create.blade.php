@@ -19,8 +19,8 @@
             <div class="row">
                 @include('admin.post.statuses.fields')
                 <div class="form-group col-sm-12">
-                    {!! Form::submit(trans('l5starter::button.save'), ['class' => 'btn btn-primary btn-flat']) !!}
-                    <a href="{!! route('admin.post.statuses.index') !!}" class="btn btn-default btn-flat">{{ trans('l5starter::button.cancel') }}</a>
+                    <a href="{!! route('admin.post.statuses.index') !!}" class="btn btn-default btn-flat">{{ trans('l5starter::button.back') }}</a>
+                    {!! Form::submit(trans('messages.add_new_status'), ['class' => 'btn btn-primary btn-flat']) !!}
                 </div>
             </div>
             {!! Form::close() !!}
