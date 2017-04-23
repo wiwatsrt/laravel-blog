@@ -29,7 +29,7 @@
                     <div class="row">
                         @include('admin.posts.options')
                         <div class="form-group col-sm-12">
-                            {!! Form::submit(trans('l5starter::button.save'), ['class' => 'btn btn-primary btn-flat pull-right']) !!}
+                            {!! Form::submit(trans('messages.add_new_post'), ['class' => 'btn btn-primary btn-flat pull-right']) !!}
                         </div>
                     </div>
                 </div>
