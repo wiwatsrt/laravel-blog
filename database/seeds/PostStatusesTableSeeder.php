@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SettingsTableSeeder extends Seeder
+class PostStatusesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,23 +11,20 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('settings')->insert([
+        DB::table('post_statuses')->insert([
             [
-                'setting_key' => 'headerTitleText',
-                'setting_value' => 'Laravel 5 Starter',
+                'name' => 'Draft',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
-            ], [
-                'setting_key' => 'dateFormat',
-                'setting_value' => 'd/m/Y',
+            ],[
+                'name' => 'Pending',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
-            ], [
-                'setting_key' => 'resultsPerPage',
-                'setting_value' => '15',
+            ],[
+                'name' => 'Published',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
-            ],
+            ]
         ]);
     }
 }
