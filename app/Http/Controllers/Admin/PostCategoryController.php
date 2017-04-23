@@ -128,10 +128,15 @@ class PostCategoryController extends Controller
             return redirect(route('admin.post.categories.index'));
         }
 
-        $this->postCategory->delete($id);
+        if (! $category->posts->count()) {
+            $this->postCategory->delete($id);
+            Flash::success(trans('l5starter::messages.delete.success'));
 
-        Flash::success(trans('l5starter::messages.delete.success'));
+            return redirect(route('admin.post.categories.index'));
+        } else {
+            Flash::error(trans('l5starter::messages.delete.error'));
 
-        return redirect(route('admin.post.categories.index'));
+            return redirect(route('admin.post.categories.index'));
+        }
     }
 }
