@@ -14,4 +14,9 @@ class PostCategory extends Model
     protected $fillable = [
         'name', 'slug', 'parent_id'
     ];
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
 }

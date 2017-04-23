@@ -14,4 +14,9 @@ class PostTag extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
 }
