@@ -20,6 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+    Route::resource('posts', 'PostController', [
+        'except' => ['show'],
+        'names' => [
+            'index' => 'admin.posts.index',
+            'create' => 'admin.posts.create',
+            'store' => 'admin.posts.store',
+            'edit' => 'admin.posts.edit',
+            'update' => 'admin.posts.update',
+            'destroy' => 'admin.posts.destroy',
+        ],
+    ]);
     Route::resource('post/categories', 'PostCategoryController', [
         'except' => ['show'],
         'names' => [

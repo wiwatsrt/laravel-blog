@@ -29,19 +29,29 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li class="{{ (Request::is('admin/posts') ? 'active' : '') }}">
+                        <a href="{{ route('admin.posts.index') }}">
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.all_posts') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ (Request::is('admin/posts/create') ? 'active' : '') }}">
+                        <a href="{{ route('admin.posts.create') }}">
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.add_new_post') }}</span>
+                        </a>
+                    </li>
                     <li class="{{ (Request::is('admin/post/categories*') ? 'active' : '') }}">
                         <a href="{{ route('admin.post.categories.index') }}">
-                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.categories') }}</span>
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.category') }}</span>
                         </a>
                     </li>
                     <li class="{{ (Request::is('admin/post/tags*') ? 'active' : '') }}">
                         <a href="{{ route('admin.post.tags.index') }}">
-                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.tags') }}</span>
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.tag') }}</span>
                         </a>
                     </li>
                     <li class="{{ (Request::is('admin/post/statuses*') ? 'active' : '') }}">
                         <a href="{{ route('admin.post.statuses.index') }}">
-                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.statuses') }}</span>
+                            <i class="fa fa-circle-o"></i> <span>{{ trans('messages.status') }}</span>
                         </a>
                     </li>
                 </ul>
