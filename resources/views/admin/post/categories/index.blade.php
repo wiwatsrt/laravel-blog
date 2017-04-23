@@ -35,6 +35,7 @@
                             <tr>
                                 <th>{{ trans('messages.name') }}</th>
                                 <th>{{ trans('messages.slug') }}</th>
+                                <th>{{ trans('messages.count') }}</th>
                                 <th colspan="3">{{ trans('l5starter::general.action') }}</th>
                             </tr>
                         </thead>
@@ -43,6 +44,7 @@
                             <tr>
                                 <td>{!! $category->name !!}</td>
                                 <td>{!! $category->slug !!}</td>
+                                <td>{!! $category->posts->count() !!}</td>
                                 <td>
                                     {!! Form::open(['route' => ['admin.post.categories.destroy', $category->id], 'method' => 'delete']) !!}
                                     <div class='btn-group'>

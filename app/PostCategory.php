@@ -19,4 +19,9 @@ class PostCategory extends Model
     {
         $this->attributes['slug'] = str_slug($value);
     }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post', 'category_id');
+    }
 }
